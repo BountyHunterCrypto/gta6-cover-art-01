@@ -1,23 +1,57 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
-<link rel="stylesheet" href="./style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GTA Cover Craft</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
-    <p id="status" role="status"></p>
-  </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
-</main>
-<script type="module" src="./src/main.js"></script>
+  <main class="app">
+    <section class="controls">
+      <header>
+        <p class="brand">GTA Cover Craft</p>
+        <p class="tagline">Retro-future panels for neon city heists</p>
+      </header>
+      <div class="control-group">
+        <label class="field">
+          <span>Photo</span>
+          <input id="photo" type="file" accept="image/*">
+        </label>
+        <button id="fill-panels" type="button">Fill all panels</button>
+      </div>
+      <div class="layout-picker">
+        <span>Layout</span>
+        <div class="layout-buttons">
+          <button type="button" data-layout="single" class="layout-button active">Single</button>
+          <button type="button" data-layout="tri" class="layout-button">Tri-panel</button>
+          <button type="button" data-layout="grid" class="layout-button">2×2</button>
+        </div>
+      </div>
+      <p class="panel-status" id="panel-status">Panel 1 of 1</p>
+      <label class="field">
+        <span>Caption</span>
+        <input id="caption" type="text" maxlength="40" value="Sunset Heist">
+      </label>
+      <label class="field">
+        <span>Zoom <span id="zoom-value">100%</span></span>
+        <input id="zoom-slider" type="range" min="0.6" max="3" step="0.01" value="1">
+      </label>
+      <div class="size-picker">
+        <span>Size</span>
+        <div class="size-buttons">
+          <button type="button" data-size="1080x1080" class="size-button active">1080×1080</button>
+          <button type="button" data-size="1080x1350" class="size-button">1080×1350</button>
+          <button type="button" data-size="1920x1080" class="size-button">1920×1080</button>
+        </div>
+      </div>
+      <button id="export" type="button">Export PNG</button>
+      <p id="status" role="status"></p>
+    </section>
+    <section class="canvas-shell">
+      <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
+    </section>
+  </main>
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>

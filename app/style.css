@@ -10,3 +10,22 @@ canvas { width: min(70vh, 60vw); height: min(70vh, 60vw); box-shadow: 0 8px 30px
 body.shot-cover .controls { display: none; }
 body.shot-cover .app { padding: 0; }
 body.shot-cover canvas { width: 100vw; height: 100vh; box-shadow: none; }
+
+@font-face {
+  font-family: 'Cover';
+  src: url('./fonts/archivo-black.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.app { background: #050017; }
+.canvas-shell {
+  position: relative;
+  border-radius: 20px;
+  padding: 16px;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 110, 244, 0.25), transparent 45%),
+    radial-gradient(circle at 70% 10%, rgba(64, 246, 255, 0.25), transparent 40%),
+    #050017;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
