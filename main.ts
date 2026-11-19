@@ -20,6 +20,13 @@ const here = fileURLToPath(new URL('.', import.meta.url));
 const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
 mkdirSync(out, { recursive: true });
+
+for (const asset of ['app/index.html', 'app/fonts/archivo-black.woff2']) {
+  const assetPath = join(here, asset);
+  if (!existsSync(assetPath)) {
+    throw new Error(`Missing required path: ${asset}`);
+  }
+}
 cpSync(join(here, 'app'), join(out, 'app'), { recursive: true });
 mkdirSync(join(out, 'screenshots'), { recursive: true });
 if (existsSync(join(here, 'screenshots'))) cpSync(join(here, 'screenshots'), join(out, 'screenshots'), { recursive: true });
