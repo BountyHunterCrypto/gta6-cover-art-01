@@ -1,3 +1,4 @@
+// Paints the poster.
 const layoutGenerators = {
   single: (width, height) => [{
     points: [

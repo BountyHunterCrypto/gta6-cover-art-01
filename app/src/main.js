@@ -1,3 +1,4 @@
+// Wires the editor controls.
 import { drawCover, getPanelDescriptors } from './cover.js';
 import { runShot } from './shots.js';
 

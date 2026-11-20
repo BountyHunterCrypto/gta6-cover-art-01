@@ -56,3 +56,4 @@ writeFileSync(
     2,
   ),
 );
+console.log('Cover art build complete.');

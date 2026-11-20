@@ -1,0 +1,9 @@
+*** Begin Patch
+*** Update File: app/src/main.js
+@@
+-import { drawCover, getPanelDescriptors } from './cover.js';
+-import { runShot } from './shots.js';
++// Wires the editor controls to the cover canvas.
++import { drawCover, getPanelDescriptors } from './cover.js';
++import { runShot } from './shots.js';
+*** End Patch
