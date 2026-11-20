@@ -16,6 +16,8 @@ let selectedPanel = 0;
 let isPointerDown = false;
 let lastPointer = { x: 0, y: 0 };
 
+const samples = ['samples/boulevard.jpg', 'samples/pier.jpg'];
+
 const sizePresets = {
   '1080x1080': { width: 1080, height: 1080 },
   '1080x1350': { width: 1080, height: 1350 },
@@ -192,6 +194,15 @@ window.addEventListener('keydown', (event) => {
     updatePanelControls();
     redraw();
   }
+});
+
+const shuffleButton = document.getElementById('shuffle');
+shuffleButton?.addEventListener('click', async () => {
+  if (samples.length === 0) return;
+  const sample = samples[Math.floor(Math.random() * samples.length)];
+  const image = await loadImage(sample);
+  panels[selectedPanel] = { ...panels[selectedPanel], img: image };
+  redraw();
 });
 
 /** Loads an image from a URL, resolving to the image once it can be drawn. */
