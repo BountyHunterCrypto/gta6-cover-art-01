@@ -6,6 +6,12 @@ html, body { margin: 0; height: 100%; background: #f2f0f4; color: #1d1b22; font:
 label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
 input[type=text] { font: inherit; padding: 8px; border: 1px solid #c9c4d1; border-radius: 6px; }
 button { font: inherit; font-weight: 700; padding: 10px; border: 0; border-radius: 6px; background: #1d1b22; color: #fff; cursor: pointer; }
+button#reset {
+  background: transparent;
+  border: 2px solid #1d1b22;
+  padding: 10px;
+  color: #1d1b22;
+}
 canvas { width: min(70vh, 60vw); height: min(70vh, 60vw); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
 body.shot-cover .controls { display: none; }
 body.shot-cover .app { padding: 0; }

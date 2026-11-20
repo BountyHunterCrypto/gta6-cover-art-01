@@ -45,3 +45,14 @@ writeFileSync(
     app_path_max_bytes: 1000,
   }),
 );
+writeFileSync(
+  join(out, 'cover.json'),
+  JSON.stringify(
+    {
+      post_sizes: ['1080x1080', '1080x1350', '1920x1080'],
+      default_caption: 'Sunset Heist',
+    },
+    null,
+    2,
+  ),
+);

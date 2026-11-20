@@ -86,6 +86,15 @@ fillButton?.addEventListener('click', () => {
   redraw();
 });
 
+const resetButton = document.getElementById('reset');
+resetButton?.addEventListener('click', () => {
+  ensurePanels();
+  panels = panels.map(() => ({ img: null, zoom: 1, x: 0, y: 0 }));
+  selectedPanel = 0;
+  captionInput.value = 'Sunset Heist';
+  redraw();
+});
+
 function handlePanelSelection(event) {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -168,6 +177,21 @@ exportButton.addEventListener('click', () => {
     anchor.click();
     status.textContent = `Saved ${anchor.download}`;
   }, 'image/png');
+});
+
+window.addEventListener('keydown', (event) => {
+  if (event.key.toLowerCase() === 'r') {
+    event.preventDefault();
+    resetButton?.click();
+    return;
+  }
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    ensurePanels();
+    selectedPanel = 0;
+    updatePanelControls();
+    redraw();
+  }
 });
 
 /** Loads an image from a URL, resolving to the image once it can be drawn. */
